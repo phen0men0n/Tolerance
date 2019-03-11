@@ -13,6 +13,11 @@
 		4F168E41222CDC3E00A0355A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F168E40222CDC3E00A0355A /* Assets.xcassets */; };
 		4F168E44222CDC3E00A0355A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F168E42222CDC3E00A0355A /* LaunchScreen.storyboard */; };
 		4F168E4F222CDC3E00A0355A /* ToleranceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E4E222CDC3E00A0355A /* ToleranceTests.swift */; };
+		4F168E5A222CDEEC00A0355A /* OKApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E59222CDEEC00A0355A /* OKApplication.swift */; };
+		4F168E5C222CE04300A0355A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E5B222CE04300A0355A /* main.swift */; };
+		4F168F0A222F802100A0355A /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F09222F802100A0355A /* Atom.swift */; };
+		4F168F1122361D4600A0355A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F1022361D4600A0355A /* DataManager.swift */; };
+		4F168F162236838700A0355A /* JSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F168F152236838600A0355A /* JSON.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,12 @@
 		4F168E4A222CDC3E00A0355A /* ToleranceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToleranceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F168E4E222CDC3E00A0355A /* ToleranceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToleranceTests.swift; sourceTree = "<group>"; };
 		4F168E50222CDC3E00A0355A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F168E59222CDEEC00A0355A /* OKApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKApplication.swift; sourceTree = "<group>"; };
+		4F168E5B222CE04300A0355A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4F168F09222F802100A0355A /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
+		4F168F1022361D4600A0355A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		4F168F1222365E5C00A0355A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4F168F152236838600A0355A /* JSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +89,17 @@
 			isa = PBXGroup;
 			children = (
 				4F168E39222CDC3C00A0355A /* AppDelegate.swift */,
+				4F168E59222CDEEC00A0355A /* OKApplication.swift */,
+				4F168F1022361D4600A0355A /* DataManager.swift */,
+				4F168F09222F802100A0355A /* Atom.swift */,
+				4F168F1222365E5C00A0355A /* README.md */,
 				4F168E3B222CDC3C00A0355A /* ViewController.swift */,
 				4F168E3D222CDC3C00A0355A /* Main.storyboard */,
+				4F168E5B222CE04300A0355A /* main.swift */,
 				4F168E40222CDC3E00A0355A /* Assets.xcassets */,
 				4F168E42222CDC3E00A0355A /* LaunchScreen.storyboard */,
 				4F168E45222CDC3E00A0355A /* Info.plist */,
+				4F168F152236838600A0355A /* JSON.txt */,
 			);
 			path = Tolerance;
 			sourceTree = "<group>";
@@ -177,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F168F162236838700A0355A /* JSON.txt in Resources */,
 				4F168E44222CDC3E00A0355A /* LaunchScreen.storyboard in Resources */,
 				4F168E41222CDC3E00A0355A /* Assets.xcassets in Resources */,
 				4F168E3F222CDC3C00A0355A /* Main.storyboard in Resources */,
@@ -198,6 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F168E3C222CDC3C00A0355A /* ViewController.swift in Sources */,
+				4F168F1122361D4600A0355A /* DataManager.swift in Sources */,
+				4F168E5A222CDEEC00A0355A /* OKApplication.swift in Sources */,
+				4F168F0A222F802100A0355A /* Atom.swift in Sources */,
+				4F168E5C222CE04300A0355A /* main.swift in Sources */,
 				4F168E3A222CDC3C00A0355A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
