@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D696FDA617DD391E7F29C59 /* Pods_ToleranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D05ADE4D5E7B50EF71B1461 /* Pods_ToleranceTests.framework */; };
 		4F168E3A222CDC3C00A0355A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E39222CDC3C00A0355A /* AppDelegate.swift */; };
 		4F168E3C222CDC3C00A0355A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E3B222CDC3C00A0355A /* ViewController.swift */; };
 		4F168E3F222CDC3C00A0355A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F168E3D222CDC3C00A0355A /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 		4F168F0A222F802100A0355A /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F09222F802100A0355A /* Atom.swift */; };
 		4F168F1122361D4600A0355A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F1022361D4600A0355A /* DataManager.swift */; };
 		4F168F162236838700A0355A /* JSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F168F152236838600A0355A /* JSON.txt */; };
+		A99B7C915409842B7EBF9DFB /* Pods_Tolerance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF0288762E1A2E951CBDDAF /* Pods_Tolerance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D05ADE4D5E7B50EF71B1461 /* Pods_ToleranceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToleranceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1696B16C40BDB62C0AA2485C /* Pods-ToleranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToleranceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToleranceTests/Pods-ToleranceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F168E36222CDC3C00A0355A /* Tolerance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tolerance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F168E39222CDC3C00A0355A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F168E3B222CDC3C00A0355A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		4F168F1022361D4600A0355A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4F168F1222365E5C00A0355A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F168F152236838600A0355A /* JSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON.txt; sourceTree = "<group>"; };
+		A702C02BAF32F8E3A133FA6D /* Pods-Tolerance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tolerance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance.debug.xcconfig"; sourceTree = "<group>"; };
+		ADD07E533674483E2EF6180C /* Pods-ToleranceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToleranceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToleranceTests/Pods-ToleranceTests.release.xcconfig"; sourceTree = "<group>"; };
+		D75DC23BC7A9BC9BBE9C9CB2 /* Pods-Tolerance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tolerance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance.release.xcconfig"; sourceTree = "<group>"; };
+		DFF0288762E1A2E951CBDDAF /* Pods_Tolerance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tolerance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A99B7C915409842B7EBF9DFB /* Pods_Tolerance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D696FDA617DD391E7F29C59 /* Pods_ToleranceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +83,8 @@
 				4F168E38222CDC3C00A0355A /* Tolerance */,
 				4F168E4D222CDC3E00A0355A /* ToleranceTests */,
 				4F168E37222CDC3C00A0355A /* Products */,
+				E20BB473405E66E1A94AE801 /* Pods */,
+				DD3536BBE799A5552A0512D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +125,26 @@
 			path = ToleranceTests;
 			sourceTree = "<group>";
 		};
+		DD3536BBE799A5552A0512D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFF0288762E1A2E951CBDDAF /* Pods_Tolerance.framework */,
+				0D05ADE4D5E7B50EF71B1461 /* Pods_ToleranceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E20BB473405E66E1A94AE801 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A702C02BAF32F8E3A133FA6D /* Pods-Tolerance.debug.xcconfig */,
+				D75DC23BC7A9BC9BBE9C9CB2 /* Pods-Tolerance.release.xcconfig */,
+				1696B16C40BDB62C0AA2485C /* Pods-ToleranceTests.debug.xcconfig */,
+				ADD07E533674483E2EF6180C /* Pods-ToleranceTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F168E53222CDC3E00A0355A /* Build configuration list for PBXNativeTarget "Tolerance" */;
 			buildPhases = (
+				E20E76310C3E2EB5AAB18F7F /* [CP] Check Pods Manifest.lock */,
 				4F168E32222CDC3C00A0355A /* Sources */,
 				4F168E33222CDC3C00A0355A /* Frameworks */,
 				4F168E34222CDC3C00A0355A /* Resources */,
+				E57EBE4230F850032DBE29B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +171,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F168E56222CDC3E00A0355A /* Build configuration list for PBXNativeTarget "ToleranceTests" */;
 			buildPhases = (
+				0B6E2008AB0BDE73687971A4 /* [CP] Check Pods Manifest.lock */,
 				4F168E46222CDC3E00A0355A /* Sources */,
 				4F168E47222CDC3E00A0355A /* Frameworks */,
 				4F168E48222CDC3E00A0355A /* Resources */,
@@ -209,6 +244,77 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B6E2008AB0BDE73687971A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToleranceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E20E76310C3E2EB5AAB18F7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tolerance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E57EBE4230F850032DBE29B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F168E32222CDC3C00A0355A /* Sources */ = {
@@ -380,11 +486,13 @@
 		};
 		4F168E54222CDC3E00A0355A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A702C02BAF32F8E3A133FA6D /* Pods-Tolerance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WTV9MV492Q;
 				INFOPLIST_FILE = Tolerance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -398,11 +506,13 @@
 		};
 		4F168E55222CDC3E00A0355A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D75DC23BC7A9BC9BBE9C9CB2 /* Pods-Tolerance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WTV9MV492Q;
 				INFOPLIST_FILE = Tolerance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +526,7 @@
 		};
 		4F168E57222CDC3E00A0355A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1696B16C40BDB62C0AA2485C /* Pods-ToleranceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -437,6 +548,7 @@
 		};
 		4F168E58222CDC3E00A0355A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADD07E533674483E2EF6180C /* Pods-ToleranceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

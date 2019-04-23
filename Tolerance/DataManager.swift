@@ -8,6 +8,29 @@
 
 import UIKit
 import CoreMotion
+import Alamofire
+import SwiftyJSON
+
+private struct Static {
+    static let schema = "http://"
+    static let server = "185.246.65.33:8080"
+    static let service = "ToleranceDataReciever"
+}
+
+/* Регистрация пользователя
+ http://185.246.65.33:8080/ToleranceDataReciever/registeruser
+Input:
+{
+    "device_id" : "DF0B8CDC-F877-4087-8C4D-DDA2E8512D46"
+}
+Out:
+{
+            "username": "User1",
+            "textvalue": "901734"
+}
+*/
+
+
 
 class DataManager {
 
@@ -33,36 +56,103 @@ class DataManager {
         atoms.append(atom)
     }
     
-    public func sendData(completion handle: (() -> Void)?)  {
+    public func sendData(completion handle: ((_ responce: JSON?) -> Void)?)  {
         print("Send [\(atoms.count)] atoms")
-        
-        var data: [String:Any] = [:]
-        data["user"] = self.user ?? "NULL"
-        data["testValue"] = self.pass ?? "NULL"
-        data["deviceID"] = self.deviceId
-        data["model"] = UIDevice.modelName
-        data["os"] = UIDevice.current.systemVersion
         
         var dataAtoms: [Any] = []
         for atom in atoms {
             dataAtoms.append(atom.json)
         }
-        
-        data["items"] = dataAtoms
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-        if let _jsonData = jsonData {
-            if let decoded = String(data: _jsonData, encoding: .utf8) {
-                print(decoded)
-            }
-        }
-        
-        if let _handle = handle {
-            _handle()
-        }
+    
+        let json: JSON = ["user": user ?? "NULL",
+                          "textValue": pass ?? "NULL",
+                          "deviceID": deviceId,
+                          "timestamp": Date().timeIntervalSince1970,
+                          "model": UIDevice.modelName,
+                          "os": UIDevice.current.systemVersion,
+                          "items": dataAtoms]
         
         atoms = []
+        
+        //print(json.rawString(options: [.prettyPrinted]) ?? "empty")
+
+        if let parameters: Parameters = json.dictionaryObject {
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json"
+            ]
+            
+            AF.request("\(Static.schema)\(Static.server)/\(Static.service)/recieve",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding(options: []),
+                headers: headers)
+                .validate()
+                .responseJSON { (response) in
+                    
+                    var json: JSON?
+                    
+                    switch response.result {
+                    case .success(let value):
+                        json = JSON(value)
+                        print("JSON: \(json!)")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let _handle = handle {
+                        _handle(json)
+                    }
+                }
+        }
+ 
     }
+    
+    
+    public func registerUser(completion handle:((_ responce: JSON?, _ error: String?) -> Void)?) {
+        
+        let json: JSON = ["device_id": deviceId]
+        
+        if let parameters: Parameters = json.dictionaryObject {
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json"
+            ]
+            
+            AF.request("\(Static.schema)\(Static.server)/\(Static.service)/registeruser",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding(options: []),
+                headers: headers)
+                .validate()
+                .responseJSON { (response) in
+                    
+                    var json: JSON?
+                    
+                    switch response.result {
+                    case .success(let value):
+                        json = JSON(value)
+                        print("JSON: \(json!)")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    if let _json = json {
+                        if let userName = _json["username"].string,
+                            let userPass = _json["textvalue"].string {
+                                self.user = userName
+                                self.pass = userPass
+                                if let _handle = handle {
+                                    _handle(_json, nil)
+                                }
+                        }
+                    } else {
+                        if let _handle = handle {
+                            _handle(nil, "Сервер сдох")
+                        }
+                    }
+            }
+        }
+    }
+    
 }
 
 public extension UIDevice {
