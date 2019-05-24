@@ -62,7 +62,7 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
         DataManager.shared.registerUser { (_ json, error) in
             if let _ = error {
                 let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert);
-                self.present(alert, animated: true, completion: nil);
+                //self.present(alert, animated: true, completion: nil);
                 
             } else {
                 self.textField.isEnabled = true

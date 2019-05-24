@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2D696FDA617DD391E7F29C59 /* Pods_ToleranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D05ADE4D5E7B50EF71B1461 /* Pods_ToleranceTests.framework */; };
+		3A09FD252297AB330082A7DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09FD242297AB330082A7DA /* SettingsViewController.swift */; };
+		3A09FD272297B1AF0082A7DA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A09FD262297B1AF0082A7DA /* Settings.swift */; };
 		4F168E3A222CDC3C00A0355A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E39222CDC3C00A0355A /* AppDelegate.swift */; };
 		4F168E3C222CDC3C00A0355A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168E3B222CDC3C00A0355A /* ViewController.swift */; };
 		4F168E3F222CDC3C00A0355A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F168E3D222CDC3C00A0355A /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		0D05ADE4D5E7B50EF71B1461 /* Pods_ToleranceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToleranceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1696B16C40BDB62C0AA2485C /* Pods-ToleranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToleranceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToleranceTests/Pods-ToleranceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A09FD242297AB330082A7DA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3A09FD262297B1AF0082A7DA /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4F168E36222CDC3C00A0355A /* Tolerance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tolerance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F168E39222CDC3C00A0355A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F168E3B222CDC3C00A0355A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +108,10 @@
 				4F168E59222CDEEC00A0355A /* OKApplication.swift */,
 				4F168F1022361D4600A0355A /* DataManager.swift */,
 				4F168F09222F802100A0355A /* Atom.swift */,
+				3A09FD262297B1AF0082A7DA /* Settings.swift */,
 				4F168F1222365E5C00A0355A /* README.md */,
 				4F168E3B222CDC3C00A0355A /* ViewController.swift */,
+				3A09FD242297AB330082A7DA /* SettingsViewController.swift */,
 				4F168E3D222CDC3C00A0355A /* Main.storyboard */,
 				4F168E5B222CE04300A0355A /* main.swift */,
 				4F168E40222CDC3E00A0355A /* Assets.xcassets */,
@@ -323,6 +329,8 @@
 			files = (
 				4F168E3C222CDC3C00A0355A /* ViewController.swift in Sources */,
 				4F168F1122361D4600A0355A /* DataManager.swift in Sources */,
+				3A09FD272297B1AF0082A7DA /* Settings.swift in Sources */,
+				3A09FD252297AB330082A7DA /* SettingsViewController.swift in Sources */,
 				4F168E5A222CDEEC00A0355A /* OKApplication.swift in Sources */,
 				4F168F0A222F802100A0355A /* Atom.swift in Sources */,
 				4F168E5C222CE04300A0355A /* main.swift in Sources */,

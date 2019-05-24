@@ -34,8 +34,12 @@ class OKApplication: UIApplication {
         motionManager.startAccelerometerUpdates()
         motionManager.startGyroUpdates()
         motionManager.startDeviceMotionUpdates()
-        motionTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(motionTimerFire(_:)), userInfo: nil, repeats: true)
+        
+        initMotionTimer()
+        
         displayTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(displayTimerFire(_:)), userInfo: nil, repeats: true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(settingsChanged(_:)), name: Notification.Name(Settings.settingsChangedNotification), object: nil)
     }
     
     deinit {
@@ -46,6 +50,18 @@ class OKApplication: UIApplication {
         motionManager.stopDeviceMotionUpdates()
     }
     
+    private func initMotionTimer() {
+    
+        let ti = TimeInterval(1 / Double(Settings.shared.accelFreq == 0 ? 1:Settings.shared.accelFreq))
+        if motionTimer != nil {
+            motionTimer.invalidate()
+        }
+        motionTimer = Timer.scheduledTimer(timeInterval: ti,
+                                           target: self,
+                                           selector: #selector(motionTimerFire(_:)),
+                                           userInfo: nil, repeats: true)
+    }
+    
     @objc func motionTimerFire(_ timer: Timer) {
         if let accelerometerData = motionManager.accelerometerData, let gyroData = motionManager.gyroData, let deviceMotion = motionManager.deviceMotion {
             
@@ -54,6 +70,7 @@ class OKApplication: UIApplication {
                                             gyro: gyroData,
                                             motion: deviceMotion))
         }
+        print("fire")
         
     }
     
@@ -65,6 +82,10 @@ class OKApplication: UIApplication {
             
             delegate.displayMotion(accelerator: accelerometerData, gyro: gyroData, motion: deviceMotion)
         }
+    }
+    
+    @objc func settingsChanged(_ notify:Notification) {
+        initMotionTimer()
     }
     
     override func sendEvent(_ event: UIEvent) {
