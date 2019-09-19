@@ -13,7 +13,7 @@ import SwiftyJSON
 
 private struct Static {
     static let schema = "http://"
-    static let server = "185.246.65.33:8080"
+    static let server = "78.29.33.233:8080"
     static let service = "ToleranceDataReciever"
 }
 
@@ -30,11 +30,31 @@ Out:
 }
 */
 
+/*
+ http://185.246.65.33:8080/ToleranceDataReciever/toleranceidentitychecker
+ Input:
+ {
+    "device_id" : "DF0B8CDC-F877-4087-8C4D-DDA2E8512D46"
+ }
+ Out:
+ {
+     "fraud_alert": "True",
+     "session_id": "12345"
+ }
+ */
 
 
 class DataManager {
 
     static let shared = DataManager()
+    
+    var server: URLConvertible {
+        if let serverIP = Settings.shared.serverIp?.count {
+            return "\(Static.schema)\(serverIP)/\(Static.service)"
+        }
+        
+        return "\(Static.schema)\(Static.server)/\(Static.service)"
+    }
     
     public var deviceId: String {
         get {
@@ -81,7 +101,7 @@ class DataManager {
                 "Content-Type": "application/json"
             ]
             
-            AF.request("\(Static.schema)\(Static.server)/\(Static.service)/recieve",
+            AF.request("\(server)/recieve",
                 method: .post,
                 parameters: parameters,
                 encoding: JSONEncoding(options: []),
@@ -117,7 +137,7 @@ class DataManager {
                 "Content-Type": "application/json"
             ]
             
-            AF.request("\(Static.schema)\(Static.server)/\(Static.service)/registeruser",
+            AF.request("\(server)/registeruser",
                 method: .post,
                 parameters: parameters,
                 encoding: JSONEncoding(options: []),
@@ -149,6 +169,62 @@ class DataManager {
                             _handle(nil, "Сервер сдох")
                         }
                     }
+            }
+        }
+    }
+    
+    public func toleranceIdentityChecker(completion handle:((_ responce: JSON?, _ error: String?) -> Void)?) {
+        print("Send [\(atoms.count)] atoms")
+        
+        var dataAtoms: [Any] = []
+        for atom in atoms {
+            dataAtoms.append(atom.json)
+        }
+        
+        let json: JSON = ["user": user ?? "NULL",
+                          "textValue": pass ?? "NULL",
+                          "deviceID": deviceId,
+                          "timestamp": Date().timeIntervalSince1970,
+                          "model": UIDevice.modelName,
+                          "os": UIDevice.current.systemVersion,
+                          "items": dataAtoms]
+        
+        atoms = []
+        
+        //print(json.rawString(options: [.prettyPrinted]) ?? "empty")
+        
+        if let parameters: Parameters = json.dictionaryObject {
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json"
+            ]
+            
+            AF.request("\(server)/tolerancecheckerfake",
+                method: .post,
+                parameters: parameters,
+                encoding: JSONEncoding(options: []),
+                headers: headers)
+                .validate()
+                .responseJSON { (response) in
+                    
+                    var json: JSON?
+                    
+                    switch response.result {
+                    case .success(let value):
+                        json = JSON(value)
+                        print("JSON: \(json!)")
+                    case .failure(let error):
+                        print(error)
+                    }
+                    
+                    guard let _ = handle else { return }
+                    if let _json = json,
+                        let _ = _json["fraud_alert"].string,
+                        let _ = _json["session_id"].string {
+                        handle!(json, nil)
+                    } else {
+                        handle!(json, "Ошибка формата данных")
+                    }
+                    
             }
         }
     }

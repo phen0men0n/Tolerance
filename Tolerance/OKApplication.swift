@@ -70,7 +70,7 @@ class OKApplication: UIApplication {
                                             gyro: gyroData,
                                             motion: deviceMotion))
         }
-        print("fire")
+        //print("fire")
         
     }
     

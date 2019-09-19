@@ -21,6 +21,7 @@
 		4F168F0A222F802100A0355A /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F09222F802100A0355A /* Atom.swift */; };
 		4F168F1122361D4600A0355A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F168F1022361D4600A0355A /* DataManager.swift */; };
 		4F168F162236838700A0355A /* JSON.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4F168F152236838600A0355A /* JSON.txt */; };
+		4F769A73232A10C600DBE77E /* TestFraudViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F769A72232A10C600DBE77E /* TestFraudViewController.swift */; };
 		A99B7C915409842B7EBF9DFB /* Pods_Tolerance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF0288762E1A2E951CBDDAF /* Pods_Tolerance.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4F168F1022361D4600A0355A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4F168F1222365E5C00A0355A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F168F152236838600A0355A /* JSON.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON.txt; sourceTree = "<group>"; };
+		4F769A72232A10C600DBE77E /* TestFraudViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFraudViewController.swift; sourceTree = "<group>"; };
 		A702C02BAF32F8E3A133FA6D /* Pods-Tolerance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tolerance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance.debug.xcconfig"; sourceTree = "<group>"; };
 		ADD07E533674483E2EF6180C /* Pods-ToleranceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToleranceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToleranceTests/Pods-ToleranceTests.release.xcconfig"; sourceTree = "<group>"; };
 		D75DC23BC7A9BC9BBE9C9CB2 /* Pods-Tolerance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tolerance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tolerance/Pods-Tolerance.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				4F168F1222365E5C00A0355A /* README.md */,
 				4F168E3B222CDC3C00A0355A /* ViewController.swift */,
 				3A09FD242297AB330082A7DA /* SettingsViewController.swift */,
+				4F769A72232A10C600DBE77E /* TestFraudViewController.swift */,
 				4F168E3D222CDC3C00A0355A /* Main.storyboard */,
 				4F168E5B222CE04300A0355A /* main.swift */,
 				4F168E40222CDC3E00A0355A /* Assets.xcassets */,
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F769A73232A10C600DBE77E /* TestFraudViewController.swift in Sources */,
 				4F168E3C222CDC3C00A0355A /* ViewController.swift in Sources */,
 				4F168F1122361D4600A0355A /* DataManager.swift in Sources */,
 				3A09FD272297B1AF0082A7DA /* Settings.swift in Sources */,

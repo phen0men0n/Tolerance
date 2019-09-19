@@ -10,6 +10,7 @@ import UIKit
 
 private struct Static {
     static let accelFreq = "accelFreq"
+    static let serverIP = "serverIp"
 }
 
 class Settings: NSObject {
@@ -25,6 +26,18 @@ class Settings: NSObject {
         
         set {
             UserDefaults.standard.set(newValue, forKey: Static.accelFreq);
+            NotificationCenter.default.post(name: Notification.Name(Settings.settingsChangedNotification), object: nil)
+        }
+    }
+    
+    var serverIp: String? {
+        get {
+            let ip = UserDefaults.standard.string(forKey: Static.serverIP);
+            return ip
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: Static.serverIP);
             NotificationCenter.default.post(name: Notification.Name(Settings.settingsChangedNotification), object: nil)
         }
     }

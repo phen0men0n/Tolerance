@@ -109,7 +109,8 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
         alert.addAction(UIAlertAction(title: "Повторить", style: .default, handler: { (action) in
             //
         }))
-        show(alert, sender: nil)
+        self.present(alert, animated: true, completion: nil)
+        //show(alert, sender: nil)
     }
     
     // MARK: - OKDispalyMotionDelegate -

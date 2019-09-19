@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var labelFreq: UILabel!
     @IBOutlet private weak var stepper: UIStepper!
+    @IBOutlet private weak var server: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class SettingsViewController: UITableViewController {
     
     private func update() {
         labelFreq.text = "\(Settings.shared.accelFreq)";
+        server.text = Settings.shared.serverIp;
     }
     
     @IBAction func stepper(_ sender: UIStepper) {
@@ -33,6 +35,12 @@ class SettingsViewController: UITableViewController {
         //labelFreq.text = "\(sender.value)";
     }
 
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        Settings.shared.serverIp = textField.text;
+        return true;
+    }
+    
     /*
     // MARK: - Navigation
 
