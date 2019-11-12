@@ -19,6 +19,83 @@ protocol OKDispalyMotionDelegate: class {
     func displayTouch(touch: UITouch) -> Void
 }
 
+final class KeyboardManager {
+
+    static let shared = KeyboardManager()
+
+    private init() { }
+
+    /// Returns keyboard view on application window
+    ///
+    /// - Returns: Keyboard view
+    func keyboardView() -> UIView? {
+        for window in UIApplication.shared.windows {
+            if let keyboardView = keyboardViewFromWindow(window) {
+                return keyboardView
+            }
+        }
+        return nil
+    }
+
+    /// Returns keyboard view from given window
+    ///
+    /// - Parameter window: Keyboard view container candidate window
+    /// - Returns: Keyboard view
+    func keyboardViewFromWindow(_ window: UIWindow) -> UIView? {
+        if window.hasClassNameSuffix("UIRemoteKeyboardWindow") {
+            let inputSetContainerView = window.subview(withSuffix: "InputSetContainerView")
+            let inputSetHostView = inputSetContainerView?.subview(withSuffix: "InputSetHostView")
+            return inputSetHostView
+        }
+
+        return nil
+    }
+    
+    func keyboardButtons(_ view: UIView?) -> [UIView]? {
+        if let v = view {
+            if v.hasClassNameSuffix("UIKeyboardLayoutStar") {
+                let buttons = v.subviews.first?.subviews;
+                return buttons
+            }
+        }
+        return nil
+    }
+    
+    func indexOfButtonAtPoint(_ point:CGPoint, in view: UIView) -> NSInteger {
+        var index = NSNotFound;
+        if let buttons = self.keyboardButtons(view) {
+            buttons.enumerated().forEach { (idx, item) in
+                if item.hasClassNameSuffix("UIKBKeyView") && item.frame.contains(point) {
+                    index = idx
+                }
+            }
+        }
+        return index
+    }
+    
+}
+
+@nonobjc extension UIView {
+
+    /// Returns first found subview with given class name
+    ///
+    /// - Parameter className: Subview class name
+    /// - Returns: First subview with given class name
+    func subview(withSuffix className: String) -> UIView? {
+        return subviews.first {
+            $0.hasClassNameSuffix(className)
+        }
+    }
+
+    /// Compares suffix of view class name with given name
+    ///
+    /// - Parameter className: Class name that will be compared
+    /// - Returns: Comparison result of view class name and given name
+    func hasClassNameSuffix(_ className: String) -> Bool {
+        return NSStringFromClass(type(of: self)).hasSuffix(className)
+    }
+}
+
 class OKApplication: UIApplication {
     
     private var motionManager: CMMotionManager!

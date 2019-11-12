@@ -13,18 +13,17 @@ class TestFraudViewController: UIViewController {
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var buttonDone: UIButton!
     @IBOutlet private weak var viewRed: UIView!
-    @IBOutlet private weak var viewGreen: UIView!
     
     var isFraud: Bool? {
         didSet {
             if let val = isFraud {
-                viewRed.alpha = !val ? 1:0.05
-                viewGreen.alpha = val ? 1:0.05
+                viewRed.backgroundColor = !val ? UIColor.red : UIColor.green;
+                //viewGreen.alpha = val ? 1:0.05
                 //viewRed.isHidden = !val;
                 //viewGreen.isHidden = val;
             } else {
-                viewRed.alpha = 0.05
-                viewGreen.alpha = 0.05
+                viewRed.backgroundColor = UIColor.clear;
+                
             }
         }
     }
@@ -32,8 +31,9 @@ class TestFraudViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //isFraud = false
-        // Do any additional setup after loading the view.
+        viewRed.backgroundColor = UIColor.clear;
+        
+        DataManager.shared.clear();
     }
     
     @IBAction func buttonDone(_ sender: Any) {
@@ -41,15 +41,23 @@ class TestFraudViewController: UIViewController {
             if pass == "936492" {
                 DataManager.shared.toleranceIdentityChecker(completion: { (json, error) in
                     
-                    print("send data")
-                    self.textField.resignFirstResponder()
-                    self.textField.text = nil
-                    
-                    if let _json = json,
-                        let fraudAlert = _json["fraud_alert"].string,
-                        let _ = _json["session_id"].string {
+                    if let _ = error {
+                        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
                         
-                        self.isFraud = fraudAlert == "True";
+                        print("send data")
+                        self.textField.resignFirstResponder()
+                        self.textField.text = nil
+                        
+                        if let _json = json,
+                            let fraudAlert = _json["fraud_alert"].string,
+                            let _ = _json["session_id"].string {
+                            
+                            self.isFraud = fraudAlert == "True";
+                        }
+                        
                     }
 
                 })

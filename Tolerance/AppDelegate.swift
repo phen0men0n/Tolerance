@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DataManager.shared.user = "UserOffice"
         DataManager.shared.pass = "936492"
         */
-        
+        print("### tesert")
         return true
     }
 

@@ -13,7 +13,7 @@ import SwiftyJSON
 
 private struct Static {
     static let schema = "http://"
-    static let server = "78.29.33.233:8080"
+    static let server = "192.168.75.195:8080"
     static let service = "ToleranceDataReciever"
 }
 
@@ -49,7 +49,7 @@ class DataManager {
     static let shared = DataManager()
     
     var server: URLConvertible {
-        if let serverIP = Settings.shared.serverIp?.count {
+        if let serverIP = Settings.shared.serverIp {
             return "\(Static.schema)\(serverIP)/\(Static.service)"
         }
         
@@ -74,6 +74,10 @@ class DataManager {
     
     public func addAtom(_ atom: Atom!) {
         atoms.append(atom)
+    }
+    
+    public func clear() {
+        atoms = []
     }
     
     public func sendData(completion handle: ((_ responce: JSON?) -> Void)?)  {
@@ -197,7 +201,7 @@ class DataManager {
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json"
             ]
-            
+            print("\(server)/tolerancecheckerfake")
             AF.request("\(server)/tolerancecheckerfake",
                 method: .post,
                 parameters: parameters,
@@ -217,10 +221,15 @@ class DataManager {
                     }
                     
                     guard let _ = handle else { return }
-                    if let _json = json,
-                        let _ = _json["fraud_alert"].string,
-                        let _ = _json["session_id"].string {
-                        handle!(json, nil)
+                    if let _json = json {
+                        if let _ = _json["fraud_alert"].string,
+                            let _ = _json["session_id"].string {
+                            handle!(json, nil)
+                        } else {
+                            if let errTxt = _json["error"].string {
+                                handle!(nil, errTxt)
+                            }
+                        }
                     } else {
                         handle!(json, "Ошибка формата данных")
                     }

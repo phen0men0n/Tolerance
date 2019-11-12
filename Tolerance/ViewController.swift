@@ -61,7 +61,7 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
         
         DataManager.shared.registerUser { (_ json, error) in
             if let _ = error {
-                let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert);
+                _ = UIAlertController(title: "Error", message: error, preferredStyle: .alert);
                 //self.present(alert, animated: true, completion: nil);
                 
             } else {
@@ -81,6 +81,7 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
         }
         
         application.displayDelegate = self
+ 
     }
 
     @IBAction func buttonDone(_ sender: Any) {

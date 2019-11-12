@@ -19,11 +19,14 @@ private struct Static {
 
 class Atom: NSObject {
     
+    var id: String
+    
     var jsonTouch: JSON?
     var jsonAccelerometer: JSON?
     var jsonGyro: JSON?
     var jsonMotion: JSON?
     var brightness: CGFloat?
+    
     
     var json: JSON {
         get {
@@ -35,8 +38,12 @@ class Atom: NSObject {
         }
     }
     
-    init(touch: UITouch?, accelerometer: CMAccelerometerData?, gyro: CMGyroData?, motion: CMDeviceMotion?) {
-        super.init()
+    override init() {
+        id = UUID().uuidString
+    }
+    
+    convenience init(touch: UITouch?, accelerometer: CMAccelerometerData?, gyro: CMGyroData?, motion: CMDeviceMotion?) {
+        self.init()
         
         jsonTouch = touch?.json
         jsonAccelerometer = accelerometer?.json(timestamp: touch?.timestamp ?? ProcessInfo.processInfo.systemUptime)
@@ -98,6 +105,8 @@ extension UITouch {
                 return "stationary"
             case .cancelled:
                 return "cancelled"
+            @unknown default:
+                return "";
             }
         }
     }
