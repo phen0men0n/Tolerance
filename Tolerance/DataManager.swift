@@ -62,22 +62,89 @@ class DataManager {
         }
     }
     
+    
     var atoms: [Atom]
+    var atoms_temp: [Atom]
+    var storedAtomsCount: [Int]
+    var storedCurrentCounter: Int
     
     private init() {
+        self.passValue = ""
+        self.storedAtomsCount = []
         self.atoms = []
+        self.atoms_temp = []
+        self.storedCurrentCounter = 0
     }
+    
+    public func setPass(_ passtw: String?){
+        self.passValue = passtw
+    }
+    
+    var passValue: String?
     
     public var user: String?
     public var pass: String?
     public var inputs: Int = 0
     
+    public func flushAtoms() {
+        atoms += atoms_temp
+        atoms_temp = []
+        storedAtomsCount.append(storedCurrentCounter)
+        storedCurrentCounter = 0
+    }
+    
+    public func deleteLastClick() {
+        let needToDelete = storedAtomsCount.last ?? 0
+        storedAtomsCount = (storedAtomsCount.dropLast())
+        atoms = Array(atoms.dropLast(needToDelete))
+    }
+    
+    public func printAtoms() {
+        for atom in atoms {
+            print(atom.json)
+        }
+    }
+    
+    public func getPassLength() -> Int {
+        if self.passValue == nil {
+            return 0
+        } else {
+            return self.passValue!.count
+        }
+    }
+    
+    public func clearTemp() {
+        atoms_temp = []
+        storedCurrentCounter = 0
+        //print("!!!clearing temp atoms")
+    }
+    
+    public func cutTempForLastClick() {
+        //print("!!!cutting temp for only one last click")
+        var endedIndex = -1
+        for (index, value) in atoms_temp.enumerated().reversed() {
+            if value.jsonTouch!["phase"] == "ended" {
+                endedIndex = index
+            }
+            if value.jsonTouch!["phase"] == "began" && endedIndex != -1 {
+                atoms_temp = Array(atoms_temp[index...endedIndex])
+                break
+            }
+        }
+    }
+    
     public func addAtom(_ atom: Atom!) {
-        atoms.append(atom)
+        if atom.jsonTouch!["source"]["name"] == "otherView" {
+            //if  (atom.jsonTouch!["phase"] != "began" && atoms_temp.count > 0) || (atom.jsonTouch!["phase"] == "began" && atoms_temp.count == 0) {
+                atoms_temp.append(atom)
+                storedCurrentCounter += 1
+            //}
+        }
     }
     
     public func clear() {
         atoms = []
+        //print("clearing atoms")
     }
     
     public func sendData(completion handle: ((_ responce: JSON?) -> Void)?)  {

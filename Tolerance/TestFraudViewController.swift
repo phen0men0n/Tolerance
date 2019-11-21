@@ -23,22 +23,37 @@ class TestFraudViewController: UIViewController {
                 //viewGreen.isHidden = val;
             } else {
                 viewRed.backgroundColor = UIColor.clear;
-                
             }
         }
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        DataManager.shared.cutTempForLastClick()
+            if textField.text!.count > DataManager.shared.getPassLength() {
+                //print("Changed for PLUS")
+                DataManager.shared.flushAtoms()
+            }
+            if textField.text!.count < DataManager.shared.getPassLength() || textField.text!.count == 0 {
+                //print("Changed for MINUS")
+                DataManager.shared.deleteLastClick()
+                DataManager.shared.clearTemp()
+            }
+        
+        print(DataManager.shared.atoms.count)
+        DataManager.shared.setPass(textField.text)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewRed.backgroundColor = UIColor.clear;
-        
-        DataManager.shared.clear();
+        textField.addTarget(self, action: #selector(TestFraudViewController.textFieldDidChange(_:)),
+        for: UIControl.Event.editingChanged)
+        DataManager.shared.clear()
+        DataManager.shared.clearTemp()
     }
     
     @IBAction func buttonDone(_ sender: Any) {
-        if let pass = textField.text {
-            if pass == "936492" {
                 DataManager.shared.toleranceIdentityChecker(completion: { (json, error) in
                     
                     if let _ = error {
@@ -54,19 +69,10 @@ class TestFraudViewController: UIViewController {
                         if let _json = json,
                             let fraudAlert = _json["fraud_alert"].string,
                             let _ = _json["session_id"].string {
-                            
                             self.isFraud = fraudAlert == "True";
                         }
-                        
                     }
-
                 })
-            } else {
-                alertPass()
-            }
-        } else {
-            alertPass()
-        }
     }
 
     func alertPass() {

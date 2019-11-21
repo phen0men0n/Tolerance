@@ -169,19 +169,21 @@ class OKApplication: UIApplication {
         
         if let touches = event.allTouches {
             for touch in touches {
-         
+                
                 let atom = Atom(touch: touch,
                                 accelerometer: self.motionManager.accelerometerData,
                                 gyro: self.motionManager.gyroData,
                                 motion: self.motionManager.deviceMotion)
                 
-                DataManager.shared.atoms.append(atom);
+                print("touch ", atom.jsonTouch!["phase"])
+                
+                DataManager.shared.addAtom(atom)
+                
                 if let delegate = self.displayDelegate {
                     delegate.displayTouch(touch: touch)
                 }
             }
         }
         super.sendEvent(event)
-    }
-    
+    }    
 }
