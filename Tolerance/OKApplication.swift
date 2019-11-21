@@ -175,7 +175,7 @@ class OKApplication: UIApplication {
                                 gyro: self.motionManager.gyroData,
                                 motion: self.motionManager.deviceMotion)
                 
-                print("touch ", atom.jsonTouch!["phase"])
+                //print("touch ", atom.jsonTouch!["phase"])
                 
                 DataManager.shared.addAtom(atom)
                 

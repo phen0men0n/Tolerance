@@ -40,7 +40,7 @@ class TestFraudViewController: UIViewController {
                 DataManager.shared.clearTemp()
             }
         
-        print(DataManager.shared.atoms.count)
+        //print(DataManager.shared.atoms.count)
         DataManager.shared.setPass(textField.text)
     }
     

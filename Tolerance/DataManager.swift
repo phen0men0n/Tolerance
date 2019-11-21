@@ -135,10 +135,8 @@ class DataManager {
     
     public func addAtom(_ atom: Atom!) {
         if atom.jsonTouch!["source"]["name"] == "otherView" {
-            //if  (atom.jsonTouch!["phase"] != "began" && atoms_temp.count > 0) || (atom.jsonTouch!["phase"] == "began" && atoms_temp.count == 0) {
-                atoms_temp.append(atom)
-                storedCurrentCounter += 1
-            //}
+            atoms_temp.append(atom)
+            storedCurrentCounter += 1
         }
     }
     
