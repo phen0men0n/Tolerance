@@ -116,11 +116,12 @@ class DataManager {
     public func clearTemp() {
         atoms_temp = []
         storedCurrentCounter = 0
-        //print("!!!clearing temp atoms")
+        setPass("")
+        print("!!!clearing temp atoms")
     }
     
     public func cutTempForLastClick() {
-        //print("!!!cutting temp for only one last click")
+        print("!!!cutting temp for only one last click")
         var endedIndex = -1
         for (index, value) in atoms_temp.enumerated().reversed() {
             if value.jsonTouch!["phase"] == "ended" {
@@ -134,9 +135,11 @@ class DataManager {
     }
     
     public func addAtom(_ atom: Atom!) {
-        if atom.jsonTouch!["source"]["name"] == "otherView" {
-            atoms_temp.append(atom)
-            storedCurrentCounter += 1
+        if let jsonTouch = atom.jsonTouch {
+            if jsonTouch["source"]["name"] == "otherView" {
+                atoms_temp.append(atom)
+                storedCurrentCounter += 1
+            }
         }
     }
     
