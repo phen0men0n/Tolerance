@@ -582,7 +582,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mLv-z2-S8j">
-                                <rect key="frame" x="44" y="263" width="287" height="40"/>
+                                <rect key="frame" x="44" y="363" width="287" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bFZ-zl-vvJ"/>
                                 </constraints>
@@ -590,7 +590,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuR-ME-uea">
-                                <rect key="frame" x="163.5" y="319" width="48" height="30"/>
+                                <rect key="frame" x="163.5" y="419" width="48" height="30"/>
                                 <state key="normal" title="Готово"/>
                                 <connections>
                                     <action selector="buttonDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D1G-Un-8eO"/>
@@ -598,15 +598,15 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="CFB-F8-YzB">
-                                <rect key="frame" x="162.5" y="129" width="50" height="50"/>
+                                <rect key="frame" x="112.5" y="129" width="150" height="150"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1z-nW-KRR">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="DKb-Sq-Rmt"/>
-                                            <constraint firstAttribute="height" constant="50" id="QFs-0M-0RL"/>
+                                            <constraint firstAttribute="width" constant="150" id="DKb-Sq-Rmt"/>
+                                            <constraint firstAttribute="height" constant="150" id="QFs-0M-0RL"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

@@ -117,11 +117,11 @@ class DataManager {
         atoms_temp = []
         storedCurrentCounter = 0
         setPass("")
-        print("!!!clearing temp atoms")
+        //print("!!!clearing temp atoms")
     }
     
     public func cutTempForLastClick() {
-        print("!!!cutting temp for only one last click")
+        //print("!!!cutting temp for only one last click")
         var endedIndex = -1
         for (index, value) in atoms_temp.enumerated().reversed() {
             if value.jsonTouch!["phase"] == "ended" {

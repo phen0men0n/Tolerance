@@ -31,16 +31,16 @@ class TestFraudViewController: UIViewController {
         
         DataManager.shared.cutTempForLastClick()
             if textField.text!.count > DataManager.shared.getPassLength() {
-                print("Changed for PLUS")
+                //print("Changed for PLUS")
                 DataManager.shared.flushAtoms()
             }
         if textField.text!.count < DataManager.shared.getPassLength() || textField.text!.count == 0 {
-                print("Changed for MINUS")
+                //print("Changed for MINUS")
                 DataManager.shared.deleteLastClick()
                 DataManager.shared.clearTemp()
             }
         
-        print(DataManager.shared.atoms.count)
+        //print(DataManager.shared.atoms.count)
         DataManager.shared.setPass(textField.text)
     }
     
@@ -73,6 +73,10 @@ class TestFraudViewController: UIViewController {
                             let fraudAlert = _json["fraud_alert"].string,
                             let _ = _json["session_id"].string {
                             self.isFraud = fraudAlert == "True";
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                                self.isFraud = nil
+                            })
                         }
                     }
                 })
