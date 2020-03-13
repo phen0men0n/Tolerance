@@ -176,7 +176,6 @@ class OKApplication: UIApplication {
                                 motion: self.motionManager.deviceMotion)
                 
                 //print("touch ", atom.jsonTouch!["phase"])
-                
                 DataManager.shared.addAtom(atom)
                 
                 if let delegate = self.displayDelegate {

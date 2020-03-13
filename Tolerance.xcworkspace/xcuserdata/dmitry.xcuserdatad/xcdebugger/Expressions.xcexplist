@@ -62,9 +62,6 @@
             <PersistentString
                value = "event.eventType">
             </PersistentString>
-            <PersistentString
-               value = "atom.jsonTouch">
-            </PersistentString>
          </PersistentStrings>
       </ContextState>
    </ContextStates>

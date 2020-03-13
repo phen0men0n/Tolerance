@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TestFraudViewController: UIViewController {
 
     @IBOutlet private weak var textField: UITextField!
@@ -27,8 +28,7 @@ class TestFraudViewController: UIViewController {
         }
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        
+    @objc func textFieldDidChange(_ textField: UITextField) {      
         DataManager.shared.cutTempForLastClick()
             if textField.text!.count > DataManager.shared.getPassLength() {
                 //print("Changed for PLUS")

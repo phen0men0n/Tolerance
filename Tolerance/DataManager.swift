@@ -87,6 +87,8 @@ class DataManager {
     public var inputs: Int = 0
     
     public func flushAtoms() {
+        // print("temp:")
+        // print(atoms_temp)
         atoms += atoms_temp
         atoms_temp = []
         storedAtomsCount.append(storedCurrentCounter)
@@ -135,6 +137,7 @@ class DataManager {
     }
     
     public func addAtom(_ atom: Atom!) {
+        // printAtoms()
         if let jsonTouch = atom.jsonTouch {
             if jsonTouch["source"]["name"] == "otherView" {
                 atoms_temp.append(atom)

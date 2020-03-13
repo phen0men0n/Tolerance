@@ -50,6 +50,23 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
     
     let application: OKApplication! = UIApplication.shared as? OKApplication
     
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        // print("test")
+        DataManager.shared.cutTempForLastClick()
+            if textField.text!.count > DataManager.shared.getPassLength() {
+                //print("Changed for PLUS")
+                DataManager.shared.flushAtoms()
+            }
+        if textField.text!.count < DataManager.shared.getPassLength() || textField.text!.count == 0 {
+                //print("Changed for MINUS")
+                DataManager.shared.deleteLastClick()
+                DataManager.shared.clearTemp()
+            }
+        
+        //print(DataManager.shared.atoms.count)
+        DataManager.shared.setPass(textField.text)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,23 +102,18 @@ class ViewController: UIViewController, OKDispalyMotionDelegate {
     }
 
     @IBAction func buttonDone(_ sender: Any) {
-        if let pass = textField.text {
-            if pass == DataManager.shared.pass {
-                DataManager.shared.sendData { (response) in
-                    print("send data")
-                    self.textField.resignFirstResponder()
-                    self.textField.text = nil
-                    if let response = response {
-                        self.info4.text = "Отправлено: [\(response["total sessions by user and device"])]"
-                    } else {
-                        self.info4.text = "Ошибка"
-                    }
-                }
+        textField.text = ""
+        DataManager.shared.setPass("")
+        
+        DataManager.shared.sendData { (response) in
+            print("send data")
+            self.textField.resignFirstResponder()
+            self.textField.text = nil
+            if let response = response {
+                self.info4.text = "Отправлено: [\(response["total sessions by user and device"])]"
             } else {
-                alertPass()
+                self.info4.text = "Ошибка"
             }
-        } else {
-            alertPass()
         }
     }
 
